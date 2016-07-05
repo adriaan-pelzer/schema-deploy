@@ -30,6 +30,7 @@
     "fs": "0.0.2",
     "highland": "^2.8.1",
     "inspect-log": "0.0.4",
+    "path": "^0.12.7",
     "ramda": "^0.21.0",
     "recursive-readdir": "^2.0.0",
     "request": "^2.72.0"

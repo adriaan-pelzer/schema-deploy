@@ -5,13 +5,14 @@ var fs = require ( 'fs' );
 var recurs = require ( 'recursive-readdir' );
 var request = require ( 'request' );
 var crypto = require ( 'crypto' );
+var P = require ( 'path' );
 
 if ( process.argv.length < 4 ) {
     console.log ( 'Please specify an environment (prod|staging|test) and a path where the schemas can be found' );
     process.exit ( 1 );
 }
 
-var config = require ( './schemaConf.js' )[process.argv[2]];
+var config = require ( P.resolve ( './schemaConf.js' ) )[process.argv[2]];
 
 if ( ! config ) {
     console.log ( 'Please specify an environment configured in schemaConf.js' );
