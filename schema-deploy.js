@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var R = require ( 'ramda' );
 var H = require ( 'highland' );
 var I = require ( 'inspect-log' );
