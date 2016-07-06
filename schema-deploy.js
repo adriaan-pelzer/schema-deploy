@@ -57,6 +57,11 @@ H.wrapCallback ( recurs )( process.argv[3] )
     .sequence ()
     .filter ( R.compose ( R.equals ( 'json' ), R.last, R.split ( '.' ) ) )
     .filter ( function ( path ) {
+        return R.reduce ( function ( filter, includeRegex ) {
+            return filter || path.match ( includeRegex );
+        }, false, config.includeRegex );
+    } )
+    .filter ( function ( path ) {
         return R.reduce ( function ( filter, omitRegex ) {
             return filter && ! ( path.match ( omitRegex ) );
         }, true, config.omitRegex );
