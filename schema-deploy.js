@@ -59,12 +59,12 @@ H.wrapCallback ( recurs )( process.argv[3] )
     .filter ( function ( path ) {
         return R.reduce ( function ( filter, includeRegex ) {
             return filter || path.match ( includeRegex );
-        }, false, config.includeRegex );
+        }, false, config.includeRegex || [] );
     } )
     .filter ( function ( path ) {
         return R.reduce ( function ( filter, omitRegex ) {
             return filter && ! ( path.match ( omitRegex ) );
-        }, true, config.omitRegex );
+        }, true, config.omitRegex || [] );
     } )
     .doto ( I )
     .flatMap ( function ( path ) {
